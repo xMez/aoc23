@@ -22,9 +22,10 @@ def main():
     challenge = args.challenge
     path = args.file_path
 
-    module = import_module(f".{challenge}", __package__)
-    func = getattr(module, "main")
-    result = func(path)
+    with open(path) as file:
+        module = import_module(f".{challenge}", __package__)
+        func = getattr(module, "solve")
+        result = func(file)
     print(result)
 
 
