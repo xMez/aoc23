@@ -1,8 +1,9 @@
 import argparse
-import logging
 import glob
+import logging
 from importlib import import_module
 from pathlib import Path
+from typing import cast
 
 module_path = Path(__file__).parent
 CHALLENGES = [Path(path).stem for path in glob.glob(f"{module_path}/d*.py")]
@@ -16,7 +17,7 @@ def main():
     args = parser.parse_args()
 
     levels = [logging.WARNING, logging.INFO, logging.DEBUG]
-    level = levels[min(args.verbose, len(levels) - 1)]
+    level = cast(int, levels[min(args.verbose, len(levels) - 1)])
     logging.basicConfig(level=level)
 
     challenge = args.challenge
