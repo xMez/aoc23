@@ -23,3 +23,18 @@ Solved by splitting the line down so I could iterate over each played round and 
 ### P2
 
 What was changed from p1 was that for each round it would iterate over the drawn cubes and add them back to a dict incase they were larger than the previous round. At the end of each game the product of the values was calculated and added back to the total sum.
+
+## D03
+
+### P1
+
+First I create a matrix of the input to be able to get locations on previous and next rows. Then when iterating over each row in the matrix i find all numbers using a regex function. I then use the start and end position to get the surroundings and concatinate that to a new string where I replace all everything matching `r"\d+|\."` and also strip the text to get rid of newlines. If the remaining string is not empty the number of the part gets added to the total sum.
+
+### P2
+
+For part 2 I had to switch my approach from finding numbers and checking if there was a symbol touching, to checking for symbols and testing if they were touching exactly two numbers. So now I use a different regex to find symbols and then I also get the numbers on the previous line, same line, and next line. Then for each symbol I check if there are numbers that intersect the area surrounding the symbol.
+
+### Reflection
+
+I could have made the solution easier if I had collected all symbols and numbers and just matched intersections where used symbols and numbers are removed after they are used.  
+Another solution might have been to do everything during the first pass over the file where I create a matrix, that might have involved a more difficult management of the loop so it was not something I wanted to try initially.
