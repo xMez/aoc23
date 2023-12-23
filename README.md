@@ -38,3 +38,13 @@ For part 2 I had to switch my approach from finding numbers and checking if ther
 
 I could have made the solution easier if I had collected all symbols and numbers and just matched intersections where used symbols and numbers are removed after they are used.  
 Another solution might have been to do everything during the first pass over the file where I create a matrix, that might have involved a more difficult management of the loop so it was not something I wanted to try initially.
+
+## D04
+
+### P1
+
+Very straightforward challenge using a simple regex to find all numbers after splitting the line at the separator. Then transforming the results to sets and checking for the length of the intersection and if there was one adding $(2^{len-1})$ to the total.
+
+### P2
+
+To keep track of the number of copies of each scratchcard I used a simple list of ints that where I initialize each number to 1. Then I add the number of copies to following cards if there are winning numbers. And finally add the number of copies of the current card to the total.
